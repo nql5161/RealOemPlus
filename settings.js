@@ -1,8 +1,6 @@
 document.getElementById('save').addEventListener('click', function() {
     const selectedBaseUrl = document.getElementById('baseUrlSelect').value;
-    chrome.storage.sync.set({ baseUrl: selectedBaseUrl }, function() {
-        console.log('Base URL is set to ' + selectedBaseUrl);
-    });
+    saveUrl(selectedBaseUrl);
     refreshPage();
 });
 
@@ -13,6 +11,12 @@ chrome.storage.sync.get(['baseUrl'], function(result) {
         console.log('No base URL found');
     }
 });
+
+function saveUrl(selectedBaseUrl) {
+    chrome.storage.sync.set({ baseUrl: selectedBaseUrl }, function() {
+        console.log('Base URL is set to ' + selectedBaseUrl);
+    });
+}
 
 function refreshPage() {
     chrome.tabs.query({ active: true, currentWindow: true }, function(tabs) {
