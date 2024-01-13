@@ -3,15 +3,9 @@ document.getElementById('save').addEventListener('click', function() {
     chrome.storage.sync.set({ baseUrl: selectedBaseUrl }, function() {
         console.log('Base URL is set to ' + selectedBaseUrl);
     });
-    chrome.tabs.query({ active: true, currentWindow: true }, function(tabs) {
-        var currentTab = tabs[0];
-        if (currentTab) {
-            chrome.tabs.reload(currentTab.id);
-        }
-    });
+    refreshPage();
 });
 
-// Load the current value on page load
 chrome.storage.sync.get(['baseUrl'], function(result) {
     if (result.baseUrl) {
         document.getElementById('baseUrlSelect').value = result.baseUrl;
@@ -19,3 +13,12 @@ chrome.storage.sync.get(['baseUrl'], function(result) {
         console.log('No base URL found');
     }
 });
+
+function refreshPage() {
+    chrome.tabs.query({ active: true, currentWindow: true }, function(tabs) {
+        var currentTab = tabs[0];
+        if (currentTab) {
+            chrome.tabs.reload(currentTab.id);
+        }
+    });
+}
