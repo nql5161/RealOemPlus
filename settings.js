@@ -10,22 +10,12 @@ optionButtons.forEach(button => {
         // Add the 'selected' class to the clicked button
         this.classList.add('selected');
 
-        // Store the selected URL
-        selectedBaseUrl = this.getAttribute('data-url');
-        console.log('Selected URL is ' + selectedBaseUrl);
-    });
-});
-
-// Save button functionality
-document.getElementById('save').addEventListener('click', function() {
-    if (selectedBaseUrl) {
+        // Save the selected URL immediately
+        const selectedBaseUrl = this.getAttribute('data-url');
         saveUrl(selectedBaseUrl);
         refreshPage();
-    } else {
-        console.log('No base URL selected');
-    }
+    });
 });
-
 
 function saveUrl(selectedBaseUrl) {
     chrome.storage.sync.set({ baseUrl: selectedBaseUrl });
