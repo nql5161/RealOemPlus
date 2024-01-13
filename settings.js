@@ -13,9 +13,7 @@ chrome.storage.sync.get(['baseUrl'], function(result) {
 });
 
 function saveUrl(selectedBaseUrl) {
-    chrome.storage.sync.set({ baseUrl: selectedBaseUrl }, function() {
-        console.log('Base URL is set to ' + selectedBaseUrl);
-    });
+    chrome.storage.sync.set({ baseUrl: selectedBaseUrl });
 }
 
 function refreshPage() {
