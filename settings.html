@@ -2,16 +2,61 @@
 <html>
 <head>
     <title>Settings</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+        .settings-container {
+            background-color: white;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            width: 300px;
+        }
+        .option-button {
+            padding: 8px;
+            margin-bottom: 10px;
+            width: 100%;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            background-color: #f8f8f8;
+            cursor: pointer;
+        }
+        .option-button:hover {
+            background-color: #e8e8e8;
+        }
+        .save-button {
+            padding: 8px;
+            width: 100%;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            background-color: #007bff;
+            color: white;
+            cursor: pointer;
+        }
+        .save-button:hover {
+            background-color: #0056b3;
+        }
+        .selected {
+            background-color: #007bff;
+            color: white;
+            border-color: #007bff;
+        }
+    </style>
 </head>
 <body>
-    <div>
-        <label for="baseUrlSelect">Base URL for Part Lookup:</label>
-        <select id="baseUrlSelect">
-            <option value="https://www.fcpeuro.com/Parts/?keywords=">FCP Euro</option>
-            <option value="https://www.ecstuning.com/Search/SiteSearch/">ECS Tuning</option>
-            <option value="https://www.pelicanparts.com/search/?q=">Pelican Parts</option>
-        </select>
-        <button id="save">Save</button>
+    <div class="settings-container">
+        <button class="option-button" data-url="https://www.fcpeuro.com/Parts/?keywords=">FCP Euro</button>
+        <button class="option-button" data-url="https://www.ecstuning.com/Search/SiteSearch/">ECS Tuning</button>
+        <button class="option-button" data-url="https://www.pelicanparts.com/search/?q=">Pelican Parts</button>
+        <button class="save-button" id="save">Save</button>
     </div>
     <script src="./settings.js"></script>
 </body>
