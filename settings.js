@@ -21,6 +21,10 @@ function saveUrl(selectedBaseUrl) {
     chrome.storage.sync.set({ baseUrl: selectedBaseUrl });
 }
 
+function getUrl(callback) {
+    chrome.storage.sync.get(['baseUrl'], callback);
+}
+
 function refreshPage() {
     chrome.tabs.query({ active: true, currentWindow: true }, function(tabs) {
         var currentTab = tabs[0];
