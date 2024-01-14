@@ -21,8 +21,16 @@ function saveUrl(selectedBaseUrl) {
     chrome.storage.sync.set({ baseUrl: selectedBaseUrl });
 }
 
-function getUrl(callback) {
-    chrome.storage.sync.get(['baseUrl'], callback);
+function getUrl() {
+    return new Promise((resolve, reject) => {
+        chrome.storage.sync.get(['baseUrl'], (result) => {
+            if (chrome.runtime.lastError) {
+                reject(chrome.runtime.lastError);
+            } else {
+                resolve(result.baseUrl);
+            }
+        });
+    });
 }
 
 function refreshPage() {
@@ -33,3 +41,17 @@ function refreshPage() {
         }
     });
 }
+
+function highlightSelectedButton() {
+    getUrl().then(url => {
+        optionButtons.forEach(button => {
+            if (button.getAttribute('data-url') === url) {
+                button.classList.add('selected');
+            }
+        });
+    }).catch(error => {
+        console.error('Error retrieving selected URL:', error);
+    });
+}
+
+document.addEventListener('DOMContentLoaded', highlightSelectedButton);
