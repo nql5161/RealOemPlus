@@ -1,7 +1,7 @@
 #!/bin/bash
 
 # Directory for the new extension
-EXTENSION_DIR="extension"
+EXTENSION_DIR="../extension"
 
 # Name of the zip file
 ZIP_FILE="extension.zip"
