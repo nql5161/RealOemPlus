@@ -28,21 +28,22 @@
             border-radius: 4px;
             background-color: #f8f8f8;
             cursor: pointer;
+            text-align: center;
+        }
+        .coffee-button {
+            width: 100%;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            background-color: #f8f8f8;
+            cursor: pointer;
+            text-align: center;
         }
         .option-button:hover {
             background-color: #e8e8e8;
         }
-        .save-button {
-            padding: 8px;
-            width: 100%;
-            border: 1px solid #ddd;
-            border-radius: 4px;
-            background-color: #007bff;
-            color: white;
-            cursor: pointer;
-        }
-        .save-button:hover {
-            background-color: #0056b3;
+        .coffee-button img {
+            height: 30px; /* Adjust as needed */
+            vertical-align: middle;
         }
         .selected {
             background-color: #007bff;
@@ -56,6 +57,9 @@
         <button class="option-button" data-url="https://www.fcpeuro.com/Parts/?keywords=">FCP Euro</button>
         <button class="option-button" data-url="https://www.ecstuning.com/Search/SiteSearch/">ECS Tuning</button>
         <button class="option-button" data-url="https://www.pelicanparts.com/search/?q=">Pelican Parts</button>
+        <a href="https://www.buymeacoffee.com/niklecce" target="_blank" class="coffee-button">
+            <img src="https://cdn.buymeacoffee.com/buttons/v2/default-blue.png" alt="Buy Me A Coffee">
+        </a>
     </div>
     <script src="./settings.js"></script>
 </body>
