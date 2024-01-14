@@ -3,7 +3,12 @@
     "name": "RealOemPlus",
     "description": "Enhance your parts diagram experience",
     "version": "1.0",
-    "permissions": ["activeTab","storage","tabs"],
+    "permissions": ["activeTab","storage"],
+    "icons": {
+      "16": "icons/icon16.png",
+      "48": "icons/icon48.png",
+      "128": "icons/icon128.png"
+    },
     "content_scripts": [
       {
         "matches": ["https://www.realoem.com/bmw/enUS/showparts?id=*"],
@@ -14,4 +19,4 @@
       "default_popup": "settings.html"
     }
   }
-  
+   
