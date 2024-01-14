@@ -14,4 +14,4 @@ let obfuscatedCode = JavaScriptObfuscator.obfuscate(originalCode, {
     disableConsoleOutput: true,
     // Additional options here
 }).getObfuscatedCode();
-fs.writeFileSync('min.js', obfuscatedCode);
+fs.writeFileSync('extension/content.js', obfuscatedCode);
